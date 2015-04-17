@@ -1,0 +1,95 @@
+---
+title: "Population Projections for NJAIS"
+author: "Rich Majerus"
+date: "May 6, 2015"
+output:
+  ioslides_presentation:
+    widescreen: true
+---
+## Goals  
+*  This presentation will provide admission officers with statistical evidence and data visualizations that they can use in conversations on their campuses to document and plan for the impact that New Jersey’s shifting demographic landscape may have on enrollment. 
+
+*  Additionally, the presentation will highlight several tools and data sets that admission officers can use to monitor relevant demographic trends in the coming years.  All of the materials from this presentation will be made available on <a href="http://www.richmajerus.com/" target="_blank">www.richmajerus.com</a>.
+
+
+
+## Introduction 
+
+* Three geographic levels 
+    + Country
+    + State
+    + County 
+
+<br/> 
+
+* Two temporal dimensions 
+    + What has happened 
+    + What is projected to happen 
+
+
+## Country Level Analysis: Population Trends 
+* The rate of population growth in the United States is decreasing (this does not mean that the population is decreasing!)
+* The rate of population growth in China has decreased more rapidly. 
+
+* Interactive graphs are linked to Google and should update when new information becomes available
+* Data from World Bank 
+
+## Country Level Analysis: School Enrollment Trends
+* The number of students enrolled in primary schools in the US has slightly decreased over the last ten years after increasing substantially between 1985 and 2000. 
+* The percentage of US primary school students enrolled in private school has decreased from nearly 20% in 1970 to 
+less than 10%.  
+* The percentage of US secondary students enrolled in private schools has decreased slightly over the last 15 years. 
+* Projections....
+
+
+## 
+
+<iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="https://www.google.com/publicdata/embed?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=sp_pop_grow&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:GBR:CHN:CAN&amp;ifdim=region&amp;tstart=-213123600000&amp;tend=1364799600000&amp;hl=en_US&amp;dl=en&amp;ind=false"></iframe>
+
+## 
+
+<iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="https://www.google.com/publicdata/embed?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=se_prm_enrl&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:CAN:GBR&amp;ifdim=region&amp;tstart=-307818000000&amp;tend=1396249200000&amp;hl=en_US&amp;dl=en&amp;ind=false"></iframe>
+
+## 
+
+<iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="https://www.google.com/publicdata/embed?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=se_prm_priv_zs&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:CAN:CHN:GBR&amp;ifdim=region&amp;tstart=-307818000000&amp;tend=1396249200000&amp;hl=en_US&amp;dl=en&amp;ind=false"></iframe>
+
+## 
+
+<iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="https://www.google.com/publicdata/embed?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=se_sec_priv_zs&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:CAN:CHN:GBR&amp;ifdim=region&amp;tstart=-307818000000&amp;tend=1396249200000&amp;hl=en_US&amp;dl=en&amp;ind=false"></iframe>
+
+## State Level Analysis: Population Trends 
+
+## 
+
+![Caption for the picture.](/Users/majerus/Desktop/NJAIS/results/state_graphs/nj_state_level.pdf)
+
+
+
+
+
+## NJAIS Member Schools
+<center>
+```{r, warning=FALSE, echo=FALSE, eval=FALSE}
+suppressMessages(library(rvest))
+suppressMessages(library(stringr))
+suppressMessages(library(ggmap))
+suppressMessages(library(leaflet))
+suppressMessages(library(rgdal))
+suppressMessages(library(sp))
+
+# read in geojson from online source 
+nj_counties <- RJSONIO::fromJSON("http://data.ci.newark.nj.us/dataset/db87f66a-6d79-4933-9011-f392fdce7eb8/resource/95db8cad-3a8c-41a4-b8b1-4991990f07f3/download/njcountypolygonv2.geojson")
+
+data <- read.csv('/Users/majerus/Desktop/NJAIS/data/new_jersey_indepedent_schools_geocoded.csv')
+
+# create leaflet map
+leaflet(data, width=750, height=650) %>%
+  addTiles() %>%
+  setView(-74.38277,  40.00135, zoom = 8) %>%
+  addGeoJSON(nj_counties) %>%
+  addCircles(data$lon, data$lat, color = '#ff0000', radius=150, popup=data$school)
+```
+</center>
+
+
