@@ -62,7 +62,10 @@ less than 10%.
 
 ## 
 
-![Caption for the picture.](/Users/majerus/Desktop/NJAIS/results/state_graphs/nj_state_level.pdf)
+<iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" 
+src="https://github.com/majerus/NJAIS/blob/master/results/state_graphs/nj_state_level.pdf"></iframe>
+
+
 
 
 
