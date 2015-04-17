@@ -83,7 +83,7 @@ county.graph <- function(df, na.rm = TRUE, ...){
     plot <- 
     ggplot(subset(df, data$county==county_list[i]),
          aes(year, value, group = county, colour = category)) + 
-    geom_line(size=1) +
+    geom_line(size=2) +
     facet_wrap( ~  category, ncol=6) +
     theme_pander() +
     theme(legend.position="none") + 
@@ -91,7 +91,7 @@ county.graph <- function(df, na.rm = TRUE, ...){
     scale_x_continuous("Year") +
     ggtitle(paste(county_list[i], ' County \n', "Percent of County Population within Age Categories \n", sep=''))
     
-    ggsave(plot, file=paste(results, 'county_graphs/' ,county_list[i], ".pdf", sep=''), scale=2)
+    ggsave(plot, file=paste(results, 'county_graphs/' ,county_list[i], ".png", sep=''), scale=2)
     print(plot)
     }
 }
@@ -111,7 +111,7 @@ county.graph2 <- function(df, na.rm = TRUE, ...){
   plot <- 
       ggplot(df,
              aes(year, value, group = county, colour = county)) + 
-      geom_line(size=1) +
+      geom_line(size=2) +
       facet_wrap(category ~ county, ncol=10) +
       theme_pander() +
       theme(legend.position="none") + 
@@ -119,7 +119,7 @@ county.graph2 <- function(df, na.rm = TRUE, ...){
       scale_x_continuous("Year") +
       ggtitle(paste("Percent of County Population within Age Categories \n", sep=''))
     
-    ggsave(plot, file=paste(results,  'county_graphs/', 'north_nj/', 'school_age_population_north_nj', ".pdf", sep=''), scale=3)
+    ggsave(plot, file=paste(results,  'county_graphs/', 'north_nj/', 'school_age_population_north_nj', ".png", sep=''), scale=3)
     print(plot)
 }
 
@@ -183,7 +183,7 @@ country.graph <- function(df, na.rm = TRUE, ...){
   plot <- 
     ggplot(df,
            aes(year, value, colour = category)) + 
-    geom_line(size=1) +
+    geom_line(size=2) +
     facet_wrap( ~ category, ncol=6) +
     theme_pander() +
     theme(legend.position="none") + 
@@ -191,7 +191,7 @@ country.graph <- function(df, na.rm = TRUE, ...){
     scale_x_continuous("Year") +
     ggtitle(paste("Percent of US Population within Age Categories \n", sep=''))
   
-  ggsave(plot, file=paste(results, 'country_graphs/', 'us_population', ".pdf", sep=''), scale=2)
+  ggsave(plot, file=paste(results, 'country_graphs/', 'us_population', ".png", sep=''), scale=2)
   print(plot)
   
 }
@@ -206,7 +206,7 @@ df$population <- df$population/1000000
 plot <- 
     ggplot(df,
            aes(year, population)) + 
-    geom_line(size=1) +
+    geom_line(size=2) +
     #facet_wrap( ~ category, ncol=6) +
     theme_pander() +
     theme(legend.position="none") + 
@@ -214,7 +214,7 @@ plot <-
     scale_x_continuous("Year") +
     ggtitle(paste("US Population over Time \n", sep=''))
   
-  ggsave(plot, file=paste(results, 'country_graphs/', 'us_count_population', ".pdf", sep=''), scale=2)
+  ggsave(plot, file=paste(results, 'country_graphs/', 'us_count_population', ".png", sep=''), scale=2)
   print(plot)
   
 }
@@ -272,7 +272,7 @@ state.graph <- function(df, na.rm = TRUE, ...){
   plot <- 
       ggplot(subset(df),
              aes(year, value, group = category, colour = category)) + 
-      geom_line(size=1) +
+      geom_line(size=2) +
       facet_wrap( ~  category, ncol=6) +
       theme_pander() +
       theme(legend.position="none") + 
@@ -280,7 +280,7 @@ state.graph <- function(df, na.rm = TRUE, ...){
       scale_x_continuous("Year") +
       ggtitle("Percent of State Population within Age Categories \n")
     
-    ggsave(plot, file=paste(results, 'state_graphs/', 'nj_state_level', ".pdf", sep=''), scale=2)
+    ggsave(plot, file=paste(results, 'state_graphs/', 'nj_state_level', ".png", sep=''), scale=2)
     print(plot)
 }
 
@@ -295,15 +295,15 @@ state.graph2 <- function(df, na.rm = TRUE, ...){
   plot <- 
     ggplot(subset(df),
            aes(year, value, group = category, colour = category)) + 
-    geom_line(size=1) +
+    geom_line(size=3) +
     facet_wrap( ~  category, ncol=2) +
     theme_pander() +
     theme(legend.position="none") + 
-    scale_y_continuous("Percent of State Population", labels = percent) +
+    scale_y_continuous("Percent of State Population", labels = percent, limits=c(0, max(df$value))) +
     scale_x_continuous("Year") +
     ggtitle("Percent of State Population within Age Categories \n")
   
-  ggsave(plot, file=paste(results, 'state_graphs/', 'nj_state_level_school_age', ".pdf", sep=''), scale=2)
+  ggsave(plot, file=paste(results, 'state_graphs/', 'nj_state_level_school_age', ".png", sep=''), scale=2)
   print(plot)
 }
 
@@ -359,7 +359,7 @@ data.labor.long <- subset(data.labor.long, data.labor.long$County!='New Jersey')
 plot <- 
   ggplot(subset(data.labor.long.total.nj, data.labor.long.total.nj$category=='Total'), 
          aes(Year, value/1000000, group = County, colour = County)) + 
-  geom_line(size=1) +
+  geom_line(size=2) +
   #facet_wrap(category ~ County, ncol=1) +
   theme_pander() +
   theme(legend.position="none") + 
@@ -367,7 +367,7 @@ plot <-
   scale_x_continuous("Year") +
   ggtitle(paste("New Jersey Population Projection \n", sep=''))
 
-ggsave(plot, file=paste(results, 'projection_graphs/', 'state_total_population_projection', ".pdf", sep=''), scale=2)
+ggsave(plot, file=paste(results, 'projection_graphs/', 'state_total_population_projection', ".png", sep=''), scale=2)
 print(plot)
 
 # total nj projection by age group (school age population only)
@@ -375,7 +375,7 @@ print(plot)
 plot <- 
   ggplot(data.labor.long.nj, 
          aes(Year, value/1000000, group = category, colour = category)) + 
-  geom_line(size=1) +
+  geom_line(size=2) +
   facet_wrap(category ~ County, ncol=2) +
   theme_pander() +
   theme(legend.position="none") + 
@@ -383,14 +383,14 @@ plot <-
   scale_x_continuous("Year") +
   ggtitle(paste("New Jersey School Age Population Projection \n", sep=''))
 
-ggsave(plot, file=paste(results, 'projection_graphs/', 'state_school_age_projection_within_age_groups', ".pdf", sep=''), scale=2)
+ggsave(plot, file=paste(results, 'projection_graphs/', 'state_school_age_projection_within_age_groups', ".png", sep=''), scale=2)
 print(plot)
 
 
 # plot <- 
 #   ggplot(data.labor.long, 
 #          aes(Year, value/1000000, group = County, colour = County)) + 
-#   geom_line(size=1) +
+#   geom_line(size=2) +
 #   facet_wrap(category ~ County, ncol=4) +
 #   theme_pander() +
 #   theme(legend.position="none") + 
@@ -398,7 +398,7 @@ print(plot)
 #   scale_x_continuous("Year") +
 #   ggtitle(paste("New Jersey School Age Population Projection \n", sep=''))
 # 
-# ggsave(plot, file=paste(results, 'projection_graphs/', 'state_school_age_projection_within_age_groups', ".pdf", sep=''), scale=2)
+# ggsave(plot, file=paste(results, 'projection_graphs/', 'state_school_age_projection_within_age_groups', ".png", sep=''), scale=2)
 # print(plot)
 
 
@@ -414,7 +414,7 @@ print(plot)
 plot <- 
   ggplot(data.labor.long,
          aes(Year, value/1000, group = County, colour = County)) + 
-  geom_line(size=1) +
+  geom_line(size=2) +
   facet_wrap(category ~ County, ncol=10) +
   theme_pander() +
   theme(legend.position="none") + 
@@ -422,7 +422,7 @@ plot <-
   scale_x_continuous("Year") +
   ggtitle(paste("County Population within Age Categories\n", sep=''))
 
-ggsave(plot, file=paste(results, 'projection_graphs/', 'counties_school_age_population_projection', ".pdf", sep=''), scale=2)
+ggsave(plot, file=paste(results, 'projection_graphs/', 'counties_school_age_population_projection', ".png", sep=''), scale=2)
 print(plot)
 
 
@@ -439,7 +439,7 @@ data.labor.long.north.nj <- subset(data.labor.long, data.labor.long$County %in% 
   plot <- 
     ggplot(data.labor.long.north.nj,
            aes(Year, value/1000, group = County, colour = County)) + 
-    geom_line(size=1) +
+    geom_line(size=2) +
     facet_wrap(category ~ County, ncol=10) +
     theme_pander() +
     theme(legend.position="none") + 
@@ -447,7 +447,7 @@ data.labor.long.north.nj <- subset(data.labor.long, data.labor.long$County %in% 
     scale_x_continuous("Year") +
     ggtitle(paste("Northern NJ County Population within Age Categories\n", sep=''))
   
-  ggsave(plot, file=paste(results, 'projection_graphs/', 'north_nj_counties_school_age_population_projection', ".pdf", sep=''), scale=3)
+  ggsave(plot, file=paste(results, 'projection_graphs/', 'north_nj_counties_school_age_population_projection', ".png", sep=''), scale=3)
   print(plot)
 
 
@@ -472,7 +472,7 @@ data.labor.long.temp <- subset(data.labor.long.temp, data.labor.long.temp$catego
 plot <- 
   ggplot(data.labor.long.temp,
          aes(Year, value/1000, group = County, colour = County)) + 
-  geom_line(size=1) +
+  geom_line(size=2) +
   facet_wrap(category ~ County, ncol=10) +
   theme_pander() +
   theme(legend.position="none") + 
@@ -480,7 +480,7 @@ plot <-
   scale_x_continuous("Year") +
   ggtitle(paste("Northern NJ County Population within Age Categories\n", sep=''))
 
-ggsave(plot, file=paste(results, 'projection_graphs/', 'north_nj_counties_population_projection', ".pdf", sep=''), scale=3)
+ggsave(plot, file=paste(results, 'projection_graphs/', 'north_nj_counties_population_projection', ".png", sep=''), scale=3)
 print(plot)
 
 
@@ -494,143 +494,5 @@ print(plot)
 
 
 
-
-
-
-
-
-
-# proximity one projections -----------------------------------------------
-
-# download html file
-webpage <- html("http://proximityone.com/demographics2060.htm")
-
-# the data we want is in the first table on this page
-# the html_table() command coerces the data into a data frame
-webpage %>%
-  html_nodes("span") %>%
-  html_text() 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ggplot(data, aes(year)) + geom_area(aes(y = value, fill = category, group = category)) 
-
-
-
-# temp 
-data <- 
-  do.call("rbind", 
-          lapply(file_list, 
-                 function(x) 
-                   cbind(year = str_sub(x, 5, 6),
-                         read_excel(paste(us, x, sep='')))))
-
-
-
-data <- cleaner(data)
-
-
-
-
-
-county.graph(data, county_list)
-
-lapply(county.graph(data), county_list)
-
-test <- data
-test <- subset(test, test$county=='Morris' | test$county=='Sussex')
-county_list <- unique(test$county)
-
-sapply(county_list, function(x) county.graph(test, x))
-
-
-
-
-
-# create list of counties in data 
-county <- unique(df$county)
-
-
-ggplot(subset(data, data$county=='Morris'),
-       aes(year, value, group = county, colour = county)) + 
-  geom_line(size=2) +
-  facet_wrap(category ~  county, ncol=6) +
-  theme_tufte() +
-  theme(legend.position="none") + 
-  scale_y_continuous("Percent of County Population", labels = percent) +
-  scale_x_continuous("Year") +
-  ggtitle("Percent of County Population with Age Categories")
-  
-
-
-  +
-  scale_y_continuous("Mean Sale Price", labels = dollar) +
-  scale_x_continuous("Year") +
-  ggtitle("Mean Home Sale Price in Ames, IA") +
-  theme_tufte() +
-  theme(plot.title = element_text(size = 16, face="bold"))
-
-
-
-                                              
-                   read_excel(paste(folder, x, sep=''))))
-
-
-cbind(file = x, read.table(paste(folder, x, sep='')
-                           
-# read_excel 
-d13 <- read_excel("/Users/majerus/Desktop/NJAIS/data/ACS_13_1YR_S0101.xls")
-d05 <- read_excel("/Users/majerus/Desktop/NJAIS/data/ACS_05_EST_S0101.xls")
-d05 <- cleaner(d05)
-
-
-d13 <- d13[rowSums(is.na(d13)) != ncol(d13),]
-
-
-# keep only relevant rows
-d13 <- d13[1:22,]
-d13 <- d13[-c(1:4), ]
-
-d13$Subject <- str_trim(as.character(d13$Subject))
-names <- d13$Subject
-
-# keep only relevant columns 
-d13 <- d13[, seq(2, ncol(d13), by = 2)] # keep total, male, female data 
-d13 <- d13[, seq(1, ncol(d13), by = 3)] # keep total only
-
-counties <- colnames(d13)
-counties <- subset(counties, counties!='')
-counties <- str_replace(counties, ' County, New Jersey', '') 
-# counties <- rep(counties, 3) for total, male, female data 
-
-counties <- counties[order(counties)]
-
-colnames(d13) <- counties
-
-temp <- as.data.frame(t(d13))
-colnames(temp) <- names
-# temp$group <- rep(c('total', 'male', 'female')) # for total, male, female data 
-
-temp$county <- rownames(temp)
-
-DFlong <- cbind(melt(temp, id.vars=c("county"), variable.name="category"), year=2013)
-DFlong <- DFlong[order(DFlong$county),]
 
 

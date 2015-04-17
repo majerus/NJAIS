@@ -61,15 +61,10 @@ less than 10%.
 ## State Level Analysis: Population Trends 
 
 ## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/state_graphs/nj_state_level.png" style="width: 800px;"/></center>
 
-<iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" 
-src="https://github.com/majerus/NJAIS/blob/master/results/state_graphs/nj_state_level.pdf"></iframe>
-
-
-
-
-
-
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/state_graphs/nj_state_level_school_age.png"  style="width: 800px;"/></center>
 
 ## NJAIS Member Schools
 <center>
