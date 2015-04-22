@@ -131,3 +131,12 @@ Graphics on all counties are available on <a href="https://github.com/majerus/NJ
 ## 
 
 Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/projection_graphs/county_graphs" target="_blank"> Github</a> 
+
+## Goals  
+*  This presentation will provide admission officers with statistical evidence and data visualizations that they can use in conversations on their campuses to document and plan for the impact that New Jersey’s shifting demographic landscape may have on enrollment. 
+
+*  Additionally, the presentation will highlight several tools and data sets that admission officers can use to monitor relevant demographic trends in the coming years.  All of the materials from this presentation will be made available on <a href="http://www.richmajerus.com/" target="_blank">www.richmajerus.com</a>.
+
+
+
+## Conclusion 

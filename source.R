@@ -422,6 +422,9 @@ county.graph2 <- function(df, na.rm = TRUE, ...){
       ggtitle(paste(county_list[i], ' County \n', "County Population Projection within Age Categories (thousands) \n", sep=''))
     
     ggsave(plot, file=paste(results, 'projection_graphs/county_graphs/' ,county_list[i], ".png", sep=''), scale=2)
+    ggsave(plot, file=paste(results, 'projection_graphs/county_graphs/' ,county_list[i], ".pdf", sep=''), scale=2)
+    
+    
     print(plot)
   }
 }
@@ -446,6 +449,7 @@ plot <-
   ggtitle(paste("County Population within Age Categories\n", sep=''))
 
 ggsave(plot, file=paste(results, 'projection_graphs/', 'counties_school_age_population_projection', ".png", sep=''), scale=2)
+
 print(plot)
 
 
