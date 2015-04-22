@@ -402,8 +402,31 @@ print(plot)
 # print(plot)
 
 
+# create county level graphs
 
+county.graph2 <- function(df, na.rm = TRUE, ...){
+  
+  county_list <- unique(df$County)
+  
+  for (i in seq_along(county_list)) {
+    
+    plot <- 
+      ggplot(subset(df, df$County==county_list[i]),
+             aes(Year, value/1000, group = County, colour = category)) + 
+      geom_line(size=2) +
+      facet_wrap( ~  category, ncol=2) +
+      theme_pander() +
+      theme(legend.position="none") + 
+      scale_y_continuous("County Population within Age Categories (thousands)", limits=c(0, max(df$value[df$County==county_list[i]]))/1000) +
+      scale_x_continuous("Year") +
+      ggtitle(paste(county_list[i], ' County \n', "County Population Projection within Age Categories (thousands) \n", sep=''))
+    
+    ggsave(plot, file=paste(results, 'projection_graphs/county_graphs/' ,county_list[i], ".png", sep=''), scale=2)
+    print(plot)
+  }
+}
 
+county.graph2(data.labor.long)
 
 
 

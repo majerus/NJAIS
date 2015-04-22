@@ -130,4 +130,4 @@ Graphics on all counties are available on <a href="https://github.com/majerus/NJ
 
 ## 
 
-Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/county_graphs" target="_blank"> Github</a> 
+Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/projection_graphs/county_graphs" target="_blank"> Github</a> 
