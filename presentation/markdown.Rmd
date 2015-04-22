@@ -6,6 +6,14 @@ output:
   ioslides_presentation:
     widescreen: true
 ---
+
+```{r, eval=FALSE, include=FALSE}
+# to do: 
+# add list of data sources and links 
+# spell check 
+
+```
+
 ## Goals  
 *  This presentation will provide admission officers with statistical evidence and data visualizations that they can use in conversations on their campuses to document and plan for the impact that New Jersey’s shifting demographic landscape may have on enrollment. 
 
@@ -28,14 +36,15 @@ output:
 
 
 ## Country Level Analysis: Population Trends 
-* The rate of population growth in the United States is decreasing (this does not mean that the population is decreasing!)
-* The rate of population growth in China has decreased more rapidly. 
+* Data from World Bank on population and education trends in countries across the globe <br/><br/>
+* The rate of population growth in the United States is decreasing <br/><br/>
+* This does not mean that the population is decreasing! <br/><br/>
+* The rate of population growth in China has decreased more rapidly.  <br/><br/>
+* The interactive graphs included in this presentation are linked to Google and should update when new information becomes available <br/><br/>
 
-* Interactive graphs are linked to Google and should update when new information becomes available
-* Data from World Bank 
 
 ## Country Level Analysis: School Enrollment Trends
-* The number of students enrolled in primary schools in the US has slightly decreased over the last ten years after increasing substantially between 1985 and 2000. 
+* The number of students enrolled in primary schools in the US has slightly decreased over the last decade after increasing substantially between 1985 and 2000. 
 * The percentage of US primary school students enrolled in private school has decreased from nearly 20% in 1970 to 
 less than 10%.  
 * The percentage of US secondary students enrolled in private schools has decreased slightly over the last 15 years. 
@@ -58,7 +67,19 @@ less than 10%.
 
 <iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="https://www.google.com/publicdata/embed?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=se_sec_priv_zs&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:CAN:CHN:GBR&amp;ifdim=region&amp;tstart=-307818000000&amp;tend=1396249200000&amp;hl=en_US&amp;dl=en&amp;ind=false"></iframe>
 
+## 
+<iframe width="800"  frameborder="0" scrolling="Yes" marginwidth="0" marginheight="0" src="http://rich.shinyapps.io/hs_grads/"></iframe>
+
 ## State Level Analysis: Population Trends 
+
+* Data from the American Communities Survey (US Census)
+
+* The percentage of the New Jersey population that is school age has been slightly decreasing over the last 8 years. <br/><br/>   
+
+   +  This is true across age categories (Under 5, 5 to 9 years old, 10 to 14 years old, and 15 to 19 years old) <br/><br/>  
+  
+* Conversely, the percentage of the New Jersey population that is older than 50  has been increasing over the last 8 years.  <br/><br/>  
+
 
 ## 
 <center> <img src="/Users/majerus/Desktop/NJAIS/results/state_graphs/nj_state_level.png" style="width: 800px;"/></center>
@@ -68,6 +89,13 @@ less than 10%.
 
 ## State Level Analysis: Population Projections
 
+* Data from the New Jersey Department of Labor. <br/>
+* It is important to note the data source as projections vary by source. <br/>  
+* The population of New Jersey is projected to increase by more than 1 million people between 2012 and 2032. <br/>  
+* However, the majority of this growth is projected to occur in non-school age categories. <br/>   
+* The school age population in New Jersey is projected to fluctuate from 2012 to 2032. 
+
+
 ## 
 
 <center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/state_total_population_projection.png" style="width: 800px;"/></center>
@@ -76,6 +104,18 @@ less than 10%.
 <center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/state_school_age_projection_within_age_groups.png"  style="width: 800px;"/></center>
 
 ## County Level Analysis: Population Trends 
+* Data from the American Communities Survey (US Census)
+
+* Overall, the change in the percent of the New Jersey population that is school age varies from county to county.
+
+* The percentage of the population that is school age has decreased or remained constant in most New Jersey counties. 
+
+* For example, in Morris County the percentage of the population that is under 9 years old has decreased in recent years, while the percentage of the population that is between 10 and 19 years old has increased. 
+
+* In Hudson County, the percentage of the population that is under 9 years old has remained constant in recent years, while the percentage of the population that is between 10 and 19 years old has decreased. 
+
+*  Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/county_graphs" target="_blank"> Github</a> 
+
 
 ## NJAIS Member Schools
 <center>
@@ -93,7 +133,7 @@ nj_counties <- RJSONIO::fromJSON("http://data.ci.newark.nj.us/dataset/db87f66a-6
 data <- read.csv('/Users/majerus/Desktop/NJAIS/data/new_jersey_indepedent_schools_geocoded.csv')
 
 # create leaflet map
-leaflet(data, width=750, height=650) %>%
+leaflet(data, width=1000, height=650) %>%
   addTiles() %>%
   setView(-74.38277,  40.00135, zoom = 8) %>%
   addGeoJSON(nj_counties) %>%
@@ -110,11 +150,21 @@ leaflet(data, width=750, height=650) %>%
 ## 
 <center> <img src="/Users/majerus/Desktop/NJAIS/results/county_graphs/Hudson.png"  style="width: 800px;"/></center>
 
-## 
 
-Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/county_graphs" target="_blank"> Github</a> 
 
-## County Level Analysis: Population Trends 
+## County Level Analysis: Population Projections
+
+* Data from New Jersey Department of Labor
+
+* Noteable variability in population projections exist across both counties and age categories.  
+
+* Overall, the Department of Labor statistics project that the school age population in many New Jersey counties will remain constant over the next twenty years. 
+
+* For example, the school age population projections for each age group in Morris County are stable over the next twenty years. 
+
+* Conversely, the school age population projections for Hudson County show substantially greater fluctuations over the next 20 years. 
+
+* Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/projection_graphs/county_graphs" target="_blank"> Github</a> 
 
 ## 
 <center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/north_nj_counties_population_projection.png"  style="width: 800px;"/></center>
@@ -128,15 +178,9 @@ Graphics on all counties are available on <a href="https://github.com/majerus/NJ
 ## 
 <center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/county_graphs/Hudson.png"  style="width: 700px;"/></center>
 
-## 
-
-Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/projection_graphs/county_graphs" target="_blank"> Github</a> 
 
 ## Goals  
 *  This presentation will provide admission officers with statistical evidence and data visualizations that they can use in conversations on their campuses to document and plan for the impact that New Jersey’s shifting demographic landscape may have on enrollment. 
 
 *  Additionally, the presentation will highlight several tools and data sets that admission officers can use to monitor relevant demographic trends in the coming years.  All of the materials from this presentation will be made available on <a href="http://www.richmajerus.com/" target="_blank">www.richmajerus.com</a>.
 
-
-
-## Conclusion 
