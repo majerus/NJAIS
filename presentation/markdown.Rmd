@@ -156,7 +156,7 @@ leaflet(data, width=1000, height=650) %>%
 
 * Data from New Jersey Department of Labor
 
-* Noteable variability in population projections exist across both counties and age categories.  
+* Notable variability in population projections exist across both counties and age categories.  
 
 * Overall, the Department of Labor statistics project that the school age population in many New Jersey counties will remain constant over the next twenty years. 
 
