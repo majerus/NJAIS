@@ -66,6 +66,17 @@ less than 10%.
 ## 
 <center> <img src="/Users/majerus/Desktop/NJAIS/results/state_graphs/nj_state_level_school_age.png"  style="width: 800px;"/></center>
 
+## State Level Analysis: Population Projections
+
+## 
+
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/state_total_population_projection.png" style="width: 800px;"/></center>
+
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/state_school_age_projection_within_age_groups.png"  style="width: 800px;"/></center>
+
+## County Level Analysis: Population Trends 
+
 ## NJAIS Member Schools
 <center>
 ```{r, warning=FALSE, echo=FALSE, eval=FALSE}
@@ -90,4 +101,33 @@ leaflet(data, width=750, height=650) %>%
 ```
 </center>
 
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/county_graphs/north_nj/school_age_population_north_nj.png" style="width: 800px;"/></center>
 
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/county_graphs/Morris.png"  style="width: 800px;"/></center>
+
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/county_graphs/Hudson.png"  style="width: 800px;"/></center>
+
+## 
+
+Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/county_graphs" target="_blank"> Github</a> 
+
+## County Level Analysis: Population Trends 
+
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/north_nj_counties_population_projection.png"  style="width: 800px;"/></center>
+
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/north_nj_counties_school_age_population_projection.png"  style="width: 800px;"/></center>
+
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/county_graphs/Morris.png"  style="width: 700px;"/></center>
+
+## 
+<center> <img src="/Users/majerus/Desktop/NJAIS/results/projection_graphs/county_graphs/Hudson.png"  style="width: 700px;"/></center>
+
+## 
+
+Graphics on all counties are available on <a href="https://github.com/majerus/NJAIS/tree/master/results/county_graphs" target="_blank"> Github</a> 
