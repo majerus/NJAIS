@@ -43,17 +43,20 @@ output:
 * The interactive graphs included in this presentation are linked to Google and should update when new information becomes available <br/><br/>
 
 
+
+## 
+
+<iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="https://www.google.com/publicdata/embed?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=sp_pop_grow&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:GBR:CHN:CAN&amp;ifdim=region&amp;tstart=-213123600000&amp;tend=1364799600000&amp;hl=en_US&amp;dl=en&amp;ind=false"></iframe>
+
+
 ## Country Level Analysis: School Enrollment Trends
 * The number of students enrolled in primary schools in the US has slightly decreased over the last decade after increasing substantially between 1985 and 2000. 
 * The percentage of US primary school students enrolled in private school has decreased from nearly 20% in 1970 to 
 less than 10%.  
 * The percentage of US secondary students enrolled in private schools has decreased slightly over the last 15 years. 
-* Projections....
 
 
-## 
 
-<iframe width="500" height="325" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="https://www.google.com/publicdata/embed?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=sp_pop_grow&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:GBR:CHN:CAN&amp;ifdim=region&amp;tstart=-213123600000&amp;tend=1364799600000&amp;hl=en_US&amp;dl=en&amp;ind=false"></iframe>
 
 ## 
 
@@ -90,9 +93,13 @@ less than 10%.
 ## State Level Analysis: Population Projections
 
 * Data from the New Jersey Department of Labor. <br/>
-* It is important to note the data source as projections vary by source. <br/>  
-* The population of New Jersey is projected to increase by more than 1 million people between 2012 and 2032. <br/>  
+
+* It is important to note the data source as projections vary by source. <br/> 
+
+* The population of New Jersey is projected to increase by more than 1 million people between 2012 and 2032. <br/> 
+
 * However, the majority of this growth is projected to occur in non-school age categories. <br/>   
+
 * The school age population in New Jersey is projected to fluctuate from 2012 to 2032. 
 
 
@@ -119,7 +126,7 @@ less than 10%.
 
 ## NJAIS Member Schools
 <center>
-```{r, warning=FALSE, echo=FALSE, eval=FALSE}
+```{r, warning=FALSE, echo=FALSE, eval=TRUE}
 suppressMessages(library(rvest))
 suppressMessages(library(stringr))
 suppressMessages(library(ggmap))
